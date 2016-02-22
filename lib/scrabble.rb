@@ -1,6 +1,9 @@
 class Scrabble
   def score(word)
-    0
+    return 0 unless word =~ /^[a-zA-Z]*[a-zA-Z]$/
+    word.split("").reduce(0) do |score, letter|
+      score + point_values[letter.upcase]
+    end
   end
 
   def point_values
